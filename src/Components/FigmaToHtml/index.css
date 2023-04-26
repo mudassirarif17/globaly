@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&family=Open+Sans&display=swap');
+
+.dummy {
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-family: 'Open Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --dark-chocolate: #603936;
+    --dark-red: #E63946;
+    --light-color: #FFE3D7;
+    --mobile-caramel : #FFF9C6;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.main-container {
+    width: 1152px;
+    margin: 0px auto;
+    position: relative;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 42px 0px;
+}
+
+.nav-items {
+    display: flex;
+}
+
+.nav-items ul li {
+    list-style: none;
+}
+
+.nav-items ul li a {
+    text-decoration: none;
+    padding: 4px 18px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.nav-items ul li a.active {
+    color: var(--dark-red);
+}
+
+.btn {
+    border: 1px solid black;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 4px 18px;
+}
+
+.btn-light:hover {
+    background-color: var(--dark-red);
+    color: var(--light-color);
+}
+
+.hero-section {
+    display: flex;
+    align-items: center;
+    height: calc(100vh - 131px);
+}
+
+.hero-section-left {
+    flex: 1;
+    position: relative;
+}
+.hero-section-left img{
+    z-index: 1;
+}
+.hero-ground{
+    width: 380px;
+    height: 70px;
+    background-color: var(--light-color);
+    border-radius: 50%;
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    z-index: -1;
+    box-shadow: 0px 5px 20px 5px var(--dark-red);
+}
+
+.hero-section-right {
+    flex: 1.3;
+}
+
+.hero-section-right h1 {
+    line-height: 100%;
+    font-size: 60px;
+    font-family: 'Oleo Script Swash Caps';
+    font-weight: normal;
+}
+
+.hero-section-right p {
+    line-height: 200%;
+    font-size: 16px;
+    font-family: 'Open Sans';
+    width: 489px;
+}
+.btn-dark{
+    background-color: var(--dark-chocolate);
+    color: var(--light-color);
+    line-height: 45px;
+}
+.btn-dark:hover{
+    color: var(--dark-chocolate);
+    background-color: var(--light-color);
+}
+
+.social-links{
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+}
+.social-links a{
+   padding: 0px 20px;
+   /* transition: all 1000ms; */
+}
+.social-links a:hover{
+   transform: scaleX(2);
+   cursor: pointer;
+}
+.left-bg1{
+    position: absolute;
+    top: 0;
+    z-index: -2;
+    height: 100vh;
+}
+.left-bg2{
+    position: absolute;
+    height: 100vh;
+    top: 0;
+    z-index: -2;
+}
+.left-bg3{
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    z-index: -2;
+}
+.right-bg1{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+/* Annimations  */
+.hero-section-left{
+    animation: moving-img 3000ms forwards ease-in-out;
+    transform: translateX(-100%);
+}
+@keyframes moving-img {
+    to{
+        transform: translateX(0);
+    }
+}
+.hero-section-right{
+    animation: moving-text 3000ms forwards ease-in-out;
+    transform: translatey(-80px);
+    opacity: 0;
+}
+@keyframes moving-text{
+    50%{
+        opacity: 0;
+    }
+    to{
+        transform: translatey(0);
+        opacity: 1;
+    }
+}
+.social-links{
+    animation: mov-social-icon 2000ms forwards ease-in-out ;
+    transform: translateX(-80px);
+    opacity: 0;
+}
+@keyframes mov-social-icon{
+    to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+.mbl-right-bg , .mbl-left-bg , .mobile-options , .mobile-cross , .mobile-nav{
+    display: none;
+}
+
+/* Tab Css */
+@media screen and (max-width : 1150px) {
+    body{
+        /* background-color: red; */
+    }
+    /* .tab{
+        position: relative;
+    } */
+}
+
+/* Mobile Css */
+@media screen and (max-width : 600px) {
+    .nav-items , .right-bg , .hero-ground{
+        display: none;
+    }
+    .mbl-right-bg , .mbl-left-bg{
+        display: block;
+    }
+    .main-container{
+        padding: 16px 16px;
+        width: 100vw;
+    }
+    nav{
+        position: relative;
+        z-index: 500;
+    }
+    .logo img{
+        width: 50px;
+    }
+    .hero-section{
+        flex-direction: column;
+        }
+    .hero-section-right h1 {
+        line-height: 100%;
+        font-size: 32px;
+    }
+    .hero-section-right p {
+        line-height: 200%;
+        font-size: 16px;
+        width: 90vw;
+    }
+    .hero-section-right{
+        text-align: center;
+        flex: none;
+    }
+    .hero-section-right a{
+        padding: 10px 32px;
+        line-height: 300%;
+    }
+    .hero-section-left{
+        flex: none;
+    }
+    .hero-section-left img{
+        height: 300px;
+    }
+    .social-links{
+        position: static; 
+        display: flex;
+        justify-content: center;
+    }
+    .mbl-left-bg{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 400;
+    }
+    .mbl-right-bg{
+        position: absolute;
+        bottom:0;
+        z-index: -100;
+    }
+    .mbl-active{
+        display: block;
+    }
+    .mobile-options , .mobile-cross{
+        display: flex;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background-color: var(--mobile-caramel);
+        border-radius: 8px;
+        border: 1px solid var(--dark-red);
+    }
+    .mobile-options{
+        position: absolute;
+        top: 25px;
+        z-index: 200;
+    }
+    .mobile-cross{
+        position: absolute;
+        right: 15px;
+    }
+    .mobile-options img{
+        width: 30px;
+        }
+    .mobile-nav{
+        background-color: var(--mobile-caramel);
+        height: 100vh;
+        width: 100%;
+        z-index: 200;
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 300;
+    }
+    ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .mbl-nav-items ul li {
+        list-style: none;
+        margin: 15px 0px;
+    }
+    
+    .mbl-nav-items ul li a {
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .mbl-nav-items ul li a.active {
+        color: var(--dark-red);
+    }
+}
